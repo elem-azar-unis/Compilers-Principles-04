@@ -1,5 +1,5 @@
 #include "ir_buffer.h" 
-
+#include "dst_code.h"
 //删除p指向的代码行，并且把p指向其上一行。如果这是惟一的一行，则删除后p=NULL
 #define delete_code_node(p) \
 do \
@@ -279,11 +279,14 @@ void print_code(char* name)
 	assert(fp!=NULL);
 	if(opt)optimize();
 	code_node* p=head;
+	/*
 	do
 	{
 		print_one_line(fp,p);
 		p=p->next;
 	}while(p!=head);
+	*/
+	gen_dst_code(head,fp);
 	ir_buffer_destroy();
 	fclose(fp);
 }

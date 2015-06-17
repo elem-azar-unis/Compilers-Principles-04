@@ -1,21 +1,35 @@
 int main()
-{
-	int i=0,sum=0,a[10],b[10],c[10],d=0,e=0;
-	while(i<10)
-	{
-		a[i]=i;
-		b[i]=a[i];
-		b[i]=a[i]+b[i];
-		d=a[i]+d;
-		e=e+b[i];
-		c[i]=a[i]+b[i];
-		i=i+1;
-	}
-	while(i>0)
-	{
-		i=i-1;
-		sum=sum+(a[i]+(b[i]))+((a[i])+b[i]);
-	}
-	write(sum);
-	return 0;
-}
+ {
+ int arr[10], mi;
+ int i, j, temp;
+
+ mi = 0;
+ while (mi < 10) {
+ arr[mi] = (10 - mi) * 2;
+ mi = mi + 1;
+ }
+ arr[2] = 5;
+ arr[7] = 16;
+ arr[9] = 15;
+
+ i = 1;
+ while (i < 10) {
+ temp = arr[i];
+ j = i - 1;
+ while ((j >= 0) && (arr[j] > temp)) {
+ arr[j + 1] = arr[j];
+ j = j - 1;
+ }
+ if (j != i - 1) {
+ arr[j + 1] = temp;
+ }
+ i = i + 1;
+ }
+
+ i = 0;
+ while (i < 10) {
+ write(arr[i]);
+ i = i + 1;
+ }
+ return 0;
+ }

@@ -1,18 +1,49 @@
-struct A
-{
-int a;
-struct {int b[10];}c[10];
-int d;
-};
-int main()
-{
-struct A temp,atemp[10];
-int i,ai[10];
-i=temp.d=2;
-i=temp.c[2].b[0]=4;
-ai[0]=temp.c[2].b[3]=1;
-ai[2]=atemp[3].c[1].b[2]=2;
-ai[i]=atemp[temp.c[0*3].b[3]].c[atemp[1].c[1].b[2*1]].b[i]=3;
-write(ai[0]+ai[i]+ai[2]);
-return 0;
-}
+ int max(int maxx, int maxy)
+ {
+ if (maxx > maxy) return maxx;
+ else return maxy;
+ }
+
+ int min(int minx, int miny)
+ {
+ if (minx < miny) return minx;
+ else return miny;
+ }
+
+
+ int main()
+ {
+ int A[10];
+ int maxP;
+ int localMax;
+ int localMin;
+ int i;
+
+ A[0] = 2;
+ A[1] = -1;
+ A[2] = 1;
+ A[3] = 0;
+ A[4] = 2;
+ A[5] = -10;
+ A[6] = 4;
+ A[7] = -2;
+ A[8] = -1;
+ A[9] = 4;
+
+ maxP = A[0];
+ localMax = A[0];
+ localMin = A[0];
+
+ i = 1;
+ while (i < 10) {
+ int tmpLocalMax = localMax;
+ localMax = max(A[i], max(A[i] * localMax, A[i] * localMin));
+ localMin = min(A[i], min(A[i] * tmpLocalMax, A[i] * localMin));
+ maxP = max(maxP, localMax);
+ i = i + 1;
+
+ }
+
+ write(maxP);
+ return 0;
+ }
