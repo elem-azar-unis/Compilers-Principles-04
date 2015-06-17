@@ -1,0 +1,13 @@
+*.o
+*.d
+*~
+.directory
+parser
+*.yy.c
+*.tab.c
+*.tab.h
+*.output
+README
+*.ir
+*.pyc
+*.s

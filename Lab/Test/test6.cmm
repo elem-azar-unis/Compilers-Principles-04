@@ -1,0 +1,31 @@
+int mod(int x,int n)
+{
+return x-(x/n)*n;
+}
+int main() 
+{ 
+int year=read(),month=read(),day=read(),sum,leap; 
+ 
+if(month==1)sum=0;
+else if(month==2)sum=31;
+else if(month==3)sum=59;
+else if(month==4)sum=90; 
+else if(month==5)sum=120; 
+else if(month==6)sum=151;
+else if(month==7)sum=181; 
+else if(month==8)sum=212; 
+else if(month==9)sum=243; 
+else if(month==10)sum=273;
+else if(month==11)sum=304;
+else sum=334;
+
+sum=sum+day; 
+if(mod(year,400)==0||(mod(year,4)==0&&mod(year,100)!=0)) 
+leap=1; 
+else 
+leap=0; 
+if(leap==1&&month>2)
+sum=sum+1; 
+write(sum);
+return 0;
+}

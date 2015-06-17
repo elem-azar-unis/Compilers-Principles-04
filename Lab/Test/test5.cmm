@@ -1,0 +1,24 @@
+int main() 
+{ 
+int i; 
+int bonus1,bonus2,bonus4,bonus6,bonus10,bonus; 
+i=read();
+bonus1=100000/10;bonus2=bonus1+100000*3/4;
+bonus4=bonus2+200000/2;
+bonus6=bonus4+200000*3/10;
+bonus10=bonus6+400000*15/100;
+if(i<=100000) 
+bonus=i/10; 
+else if(i<=200000) 
+bonus=bonus1+(i-100000)*75/1000; 
+else if(i<=400000) 
+bonus=bonus2+(i-200000)*5/100; 
+else if(i<=600000) 
+bonus=bonus4+(i-400000)*3/100;
+else if(i<=1000000)
+bonus=bonus6+(i-600000)*15/1000; 
+else 
+bonus=bonus10+(i-1000000)/100; 
+write(bonus); 
+return 0;
+}
